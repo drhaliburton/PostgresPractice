@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/drhaliburton/PostgresPractice#readme",
   "dependencies": {
+    "knex": "^0.13.0",
     "pg": "^6.3.1"
   }
 }

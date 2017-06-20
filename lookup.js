@@ -15,7 +15,7 @@ var query = process.argv[2];
 function printOutput(result) {
   console.log("Found " + result.rowCount + " person(s) by the name " + query);
   for (var i = 0; i < result.rowCount; i++) {
-  console.log("- " + i + ": " + result.rows[i].first_name + " " + result.rows[i].last_name + ", born " + result.rows[i].birthdate);
+  console.log("- " + i + ": " + result.rows[i].first_name + " " + result.rows[i].last_name + ", born " + result.rows[i].birthdate.toISOString().slice(0, 10));
   }
 };
 
