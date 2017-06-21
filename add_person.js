@@ -16,22 +16,6 @@ const knex = require('knex')({
 });
 
 const query = process.argv.slice(2);
-console.log(query[0]);
-
-function printOutput(err, rows) {
-  if (err) console.log(err);
-  console.log("Found " + rows.length + " person(s) by the name " + query[0]);
-  for (let i = 0; i < rows.length; i++) {
-  console.log("- " + i + ": " + rows[i].first_name + " " + rows[i].last_name + ", born " + rows[i].birthdate.toISOString().slice(0, 10));
-  }
-  knex.destroy();
-};
-
-// function runQuery(args, callback) {
-//   knex.select().from('famous_people').where({
-//     first_name: query[0],
-//   }).orWhere({last_name: query[1]}).asCallback(printOutput);
-// };
 
 function addPerson(data) {
   knex.insert({
@@ -43,6 +27,4 @@ function addPerson(data) {
   });
 }
 
-// console.log("Searching ...");
-// runQuery(query, printOutput);
 addPerson(query);
